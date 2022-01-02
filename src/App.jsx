@@ -1,10 +1,10 @@
 import "./App.css";
-import List from "./components/List";
+import ListHandler from "./components/ListHandler";
 
 function App() {
     return (
         <div className="App">
-            <List />
+            <ListHandler />
         </div>
     );
 }
