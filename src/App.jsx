@@ -1,12 +1,12 @@
-
-import './App.css';
+import "./App.css";
+import List from "./components/List";
 
 function App() {
-  return (
-    <div className="App">
-     helllodfd
-    </div>
-  );
+    return (
+        <div className="App">
+            <List />
+        </div>
+    );
 }
 
 export default App;
