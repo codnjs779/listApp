@@ -49,11 +49,22 @@ class App extends Component {
         return totalCount;
     };
 
+    resetList = () => {
+        const lists = this.state.lists.map((list) => {
+            list.count = 0;
+            return list;
+        });
+        this.setState({ lists });
+    };
+
     render() {
         return (
             <>
                 <NavBar onTotalCounter={this.totalCounter} />
                 <ListHandler state={this.state} onAddCount={this.handleAddCount} onMinusCount={this.handleMinusCount} onDeleteCount={this.handleDeleteCount} onListAdd={this.handleListAdd} />
+                <button className="resetBtn" onClick={this.resetList}>
+                    Reset Button
+                </button>
             </>
         );
     }

@@ -68,3 +68,12 @@ nav span {
     border-radius: 5px;
     cursor: pointer;
 }
+.resetBtn {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: antiquewhite;
+}
