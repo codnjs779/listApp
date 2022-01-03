@@ -40,15 +40,19 @@ class App extends Component {
     };
 
     handleListAdd = (name) => {
-        console.log("list up");
         const lists = [...this.state.lists, { id: Date.now(), name, count: 0 }];
         this.setState({ lists });
+    };
+
+    totalCounter = () => {
+        const totalCount = this.state.lists.filter((total) => total.count > 0).length;
+        return totalCount;
     };
 
     render() {
         return (
             <>
-                <NavBar />
+                <NavBar onTotalCounter={this.totalCounter} />
                 <ListHandler state={this.state} onAddCount={this.handleAddCount} onMinusCount={this.handleMinusCount} onDeleteCount={this.handleDeleteCount} onListAdd={this.handleListAdd} />
             </>
         );

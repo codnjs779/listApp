@@ -6,7 +6,8 @@ class InputHandler extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const name = this.inputRef.current.value;
-        this.props.onListAdd(name);
+        name && this.props.onListAdd(name);
+        this.inputRef.current.value = "";
     };
     render() {
         return (
