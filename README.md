@@ -1,21 +1,22 @@
 리액트로 만드는 todoList
 
 <h2>📝구현 기능</h2>
-  1. input에 입력한 내용 기존 목록에 추가
-  2. 카운트 기능(카운트 숫자가 1이상인 목록들을 상단 NavBar에 활성화 될 수 있도록함(숫자로)
+  1. input에 입력한 내용 기존 목록에 추가</br>
+  2. 카운트 기능(카운트 숫자가 1이상인 목록들을 상단 NavBar에 활성화 될 수 있도록함(숫자로)</br>
   3. reset 버튼을 누루면 활성화된 목록들 전부 초기화(zero)
 
 <h2>📂App.jsx</h2>
   가장 상단 component로 state상태관리 할 수 있음. 
   목록들의 count를 관리할 수 있는 함수를 사용해 줌. 인자로 selectedList를 받아오는데, 이것은 ListHandler.jsx에서 사용자가 클릭한 목록을 담고 있다. 함수에 받아온 인자로 카운터 추가, 감소, 목록삭제 기능을 각각의 함수에서 구현할 수 있다.
 
-아래코드는 카운트 추가 함수 이다.
+아래코드는 카운트 추가 함수 이다.</br>
 handleAddCount = (selectedList) => {
         const lists = [...this.state.lists];
         const index = lists.indexOf(selectedList);
         lists[index].count++;
         this.setState({ lists: lists });
     };
+    
 받아온 인자를 indexOf함수에 넣어서 lists에 있는 여러 object들 중에 selectedList와 일치하는 항목을 찾아서 index 변수에 할당해준다. 일치하는 항목의 count를 증가시켜주고 setState 함수를 이용해서 state의 내용을 수정해준다. 
 이때 lists는 기존 state를 그대로 spread 연산자를 이용해서 복사해준 뒤 새롭게 배열을 만들어 줬는데 이건 리액트의 중요한 개념중 하나인 불변성 때문이다. 직접적으로 state를 수정하면 안된다. 리액트가 렌더를 할 때 기존 값과 수정값을 비교해서 변동이 있는 부분만 업데이트 시키는데 직접적으로 수정하면 비교 해야 하는 대상의 레퍼런스가 동일하므로 리액트는 업데이트 할 필요가 없다고 판단해서 render 함수를 호출해 주지 않는다.
 
