@@ -31,5 +31,20 @@ App.jsx에서 선언된 함수와 state는 목록들을 담고있는 컴포넌�
 ListHandle 컴포넌트는 이 자체로 특별한 역할을 하진 않고 지나가는 통로처럼 사용한다. </br>class내에 함수를 각각 만들어서 그 함수안에 props로 받아온 함수인자 자리안에 한가지 목록만 들어있는 컴포넌트인 List.jsx에서 보내준 값을 인자로 넣어준다. </br>render부분에 props로 받아온 state를 map함수로 돌려서 각각의 obj별로 li항목으로 출력될 수 있게 했다. </br>또한, List.jsx에 props로 함수들과 map함수의 인자를 전달해준다. </br>여기서 유의해야할게 List는 li항목으로 구현했기 때문에 key값을 꼭 넣어줘야한다! </br>최종적으로 props으로 </br>list(map함수인자),  key={list.id} </br>onAddCount={this.handleAddCount} </br>onMinusCount={this.handleMinusCount} </br>onDelete={this.handleDeleteCount} 이와 같은 값을 넘겨준다. 
 
 <h2>📂List.jsx</h2>
+List에서는 ListHandler.jsx에서 받아온 함수들에 props로 받아온 state를 인자로 넘겨준다. 사용자가 클릭한 항목을 넘겨주는 것! </br>
+그리고 그 인자값을 변수로 선언해서 return에 jsx문법을 사용해서 해당하는 위치에 들어갈 정보를 넣어준다.</br> (목록 내용과 count값) 그리고 button을 클릭하면 함수가 동작할 수 있도록 onClick을 하면 함수가 실행될 수 있게 만들어 줘야한다. </br>
+
+데이터의 흐름을 정리해보자면, List에서 클릭된 항목이 ListHandler로 전달됨 그다음 그 항목은 다시 App.jsx로 전달되어서 화면에 나타나게 됨. 
+</br>
+
+<h2>📂inputHandler.jsx</h2>
+input에 값을 입력하면 새 obj를 생성하는 기능을 가진 컴포넌트이다. 이건 따로 컴포넌트를 만들어주고 ListHandler에 넣어주면 ListHandler에 받아온 props값을 함께 사용할 수 있다. </br>
+일단, React.createRef()해줘서 inputRef에 할당해준다. Ref는 Dom요소에 직접적으로 접근할 때 유용하게 사용할 수 있다.</br> 할당한 Ref를 접근하고자 하는 태그에 사용해주면 쉽게 접근할 수 있다. </br> 지금은 input에 접근해서 입력값을 받아오고 입력후 input을 빈칸으로 만들어 주는 동작을 구현할 것이다. </br>
+form 에 onSubmit함수를 할당해주고 함수 내부에는 자동제출 막기함수를 일단 실행해주고, name 변수에 inputRef.current.value를 할당해 준 다음 해당 값을 App.jsx에서 ListHandler.jsx에 넘겨준 onListAdd함수의 인자로 넘겨준다.</br>
+
+<h2>📂NavBar.jsx</h2>
+여기에는 App.jsx에서 활성화된 object항목의 수를 받아왔는데 그 값을 Ui에 출력해주는 역할을 한다. </br>
+활성화 항목의 수는 state에 filter함수를 적용해서 count가 0보다 큰 항목의 길이를 할당해준 변수를 의미한다.</br>
+
 
 
