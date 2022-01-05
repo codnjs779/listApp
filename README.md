@@ -1,4 +1,4 @@
-<h1>📗리액트로 만드는 todoList📗</br>배포링크: https://codnjs779.github.io/listApp/ <h1>
+<h1>📗리액트로 만드는 todoList📗<h1></br><h3>배포링크: https://codnjs779.github.io/listApp/</h3> 
 
 
 <h2>📝구현 기능</h2>
