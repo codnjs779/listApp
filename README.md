@@ -25,7 +25,7 @@ handleAddCount = (selectedList) => {</br>
 </br>
 예시를handleAddCount로 들었지만 감소, 삭제도 같은 맥락을 가진다. 삭제기능을 구현할 때는 filter함수를 추가적으로 사용해줘야함! 
 </br>
-App.jsx에서 선언된 함수와 state는 목록들을 담고있는 컴포넌트에 props 해줘야 한다. 인자를 받아와야하기 때문에!  ListHandler.jsx에state, handleAddCount, handleMinusCount,handleDeleteCount 를 넘겨준다.
+App.jsx에서 선언된 함수와 state는 목록들을 담고있는 컴포넌트에 props 해줘야 한다. 인자를 받아와야하기 때문에!  </br>ListHandler.jsx에state, </br>handleAddCount, handleMinusCount,</br>handleDeleteCount 를 넘겨준다.
 
 <h2>📂ListHandler.jsx</h2>
 ListHandle 컴포넌트는 이 자체로 특별한 역할을 하진 않고 지나가는 통로처럼 사용한다. </br>class내에 함수를 각각 만들어서 그 함수안에 props로 받아온 함수인자 자리안에 한가지 목록만 들어있는 컴포넌트인 List.jsx에서 보내준 값을 인자로 넣어준다. </br>render부분에 props로 받아온 state를 map함수로 돌려서 각각의 obj별로 li항목으로 출력될 수 있게 했다. </br>또한, List.jsx에 props로 함수들과 map함수의 인자를 전달해준다. </br>여기서 유의해야할게 List는 li항목으로 구현했기 때문에 key값을 꼭 넣어줘야한다! </br>최종적으로 props으로 </br>list(map함수인자),  key={list.id} </br>onAddCount={this.handleAddCount} </br>onMinusCount={this.handleMinusCount} </br>onDelete={this.handleDeleteCount} 이와 같은 값을 넘겨준다. 
